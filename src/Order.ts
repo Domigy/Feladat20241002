@@ -1,0 +1,15 @@
+export interface Order{
+  name: string,
+  szamOrsz: string,
+  szamIr: number,
+  szamVar: string,
+  szamUtca: string,
+  szalOrsz: string,
+  szalIr: number,
+  szalVar: string,
+  szalUtca: string,
+  kupon: string,
+  cardNum: string,
+  cardDate: Date,
+  cardCvc: number,
+}

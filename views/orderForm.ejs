@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Order</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <form method="post">
+      <h1>Rendelés adatai:</h1>
+      Név:
+      <input type="text" name="name" value="<%= data.id %>" required><br>
+      <h4>Számlázási cím:</h4>
+      Ország:
+      <input type="text" name="szamOrsz" value="<%= data.balance %>" required><br>
+      Irányító szám:
+      <input type="number" name="szamIr" value="<%= data.balance %>" required><br>
+      Város:
+      <input type="text" name="szamVar" value="<%= data.balance %>" required><br>
+      Utca és házszám:
+      <input type="text" name="szamUtca" value="<%= data.balance %>" required><br>
+      <h4>Szállítási cím:</h4>
+      Ország:
+      <input type="text" name="szalOrsz" value="<%= data.balance %>" required><br>
+      Irányító szám:
+      <input type="number" name="szalIr" value="<%= data.balance %>" required><br>
+      Város:
+      <input type="text" name="szalVar" value="<%= data.balance %>" required><br>
+      Utca és házszám:
+      <input type="text" name="szalUtca" value="<%= data.balance %>" required><br>
+
+
+      Kupon:
+      <input type="text" name="kupon" value="<%= data.owner %>"><br>
+
+      <h4>Fizetés:</h4>
+      Bankkártya szám:
+      <input type="text" name="cardNum" value="<%= data.balance %>" required><br>
+      Lejárat:
+      <input type="date" name="cardDate" value="<%= data.balance %>" required><br>
+      Biztonsági kód:
+      <input type="password" name="cardCvc" value="<%= data.balance %>" required><br>
+
+      <input type="submit" value="Elküld!">
+
+
+    </form>
+</body>
+</html>
