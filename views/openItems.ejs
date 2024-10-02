@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Termékek</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+  <form method="post">
+    <table>
+      <thead><th>
+      <img src= <%=data[0].picture %>></img>
+    </th>
+    <th>
+      <img src= <%=data[1].picture %>></img>
+    </th>
+    <th>
+      <img src= <%=data[2].picture %>></img>
+    </th></thead>
+    <tbody><tr><td>
+    <input type="radio" name="termek" id=<%=data[0].id%> value=<%=data[0].id %>>
+    <label for=<%=data[0].id%>><%=data[0].title%>
+    </label>
+  </td><td>
+    <input type="radio" name="termek" id=<%=data[1].id%> value=<%= data[1].id %>>
+    <label for=<%=data[1].id%>><%=data[1].title%>
+    </label>
+  </td>
+  <td>
+    <input type="radio" name="termek" id=<%=data[2].id%> value=<%= data[2].id %>>
+    <label for=<%=data[2].id%>><%=data[2].title%>
+    </label>
+  </td>
+
+</tr>
+  </tbody>
+    </table>
+    <input type="submit" value="Rendelés">
+  </form>
+</body>
+</html>
+
