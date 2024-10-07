@@ -79,17 +79,18 @@ export class AppController {
   orderPost(@Body() orderDto: orderDto,
     @Res() response: Response) {
       let errors = [];
-    if(!orderDto.Name||
-    !orderDto.SzamIr||
+    if(!orderDto.name||
+    !orderDto.szamIr||
     !orderDto.szamVar||
     !orderDto.szamUtca||
-    !orderDto.SzamOrsz||
-    !orderDto.SzalIr||
+    !orderDto.szamOrsz||
+    !orderDto.szalIr||
     !orderDto.szalVar||
     !orderDto.szalUtca||
     !orderDto.cardNum||
     !orderDto.cardDate||
     !orderDto.cardCvc){
+     
      errors.push("Add meg a kötelező mezőket!");
     }
     if(! /^[A-Z]{2}-\d{4}$/.test(orderDto.kupon)&& orderDto.kupon){
@@ -100,6 +101,9 @@ export class AppController {
 }
 if(! /^\d{3}$/.test(orderDto.cardCvc)){
   errors.push('A kártyaszám XXX formátumú legyen.')
+}
+if(! /^\d{2}\/\\d{2}$/.test(orderDto.cardCvc)){
+  errors.push('A kártyalejárata MM/YY formátumú legyen.')
 }
     
 
@@ -113,13 +117,13 @@ if(! /^\d{3}$/.test(orderDto.cardCvc)){
 
 
     const newOrder: Order = {
-      name: orderDto.Name,
-      szamOrsz: orderDto.SzamOrsz,
-      szamIr: orderDto.SzamIr,
+      name: orderDto.name,
+      szamOrsz: orderDto.szamOrsz,
+      szamIr: orderDto.szamIr,
       szamVar: orderDto.szamVar,
       szamUtca: orderDto.szamUtca,
-      szalOrsz: orderDto.SzamOrsz,
-      szalIr: orderDto.SzalIr,
+      szalOrsz: orderDto.szamOrsz,
+      szalIr: orderDto.szalIr,
       szalVar: orderDto.szalVar,
       szalUtca: orderDto.szalUtca,
       kupon: orderDto.kupon,

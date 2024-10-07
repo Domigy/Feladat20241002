@@ -1,15 +1,15 @@
 export class orderDto{
-  Name: string;
-  SzamOrsz: string;
-  SzamIr: number;
+  name: string;
+  szamOrsz: string;
+  szamIr: string;
   szamVar: string;
   szamUtca: string;
   szalOrsz: string;
-  SzalIr: number;
+  szalIr: string;
   szalVar: string;
   szalUtca: string;
   kupon: string;
   cardNum: string;
-  cardDate: Date;
+  cardDate: string;
   cardCvc: string;
 }
