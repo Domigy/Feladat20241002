@@ -8,40 +8,49 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
 <body>
+    
     <form method="post">
       <h1>Rendelés adatai:</h1>
       Név:
-      <input type="text" name="name" value="<%= data.id %>" required><br>
+      <input type="text" name="name" value="<%= data.name %>" required><br>
       <h4>Számlázási cím:</h4>
       Ország:
-      <input type="text" name="szamOrsz" value="<%= data.balance %>" required><br>
+      <input type="text" name="szamOrsz" value="<%= data.szamOrsz %>" required><br>
       Irányító szám:
-      <input type="number" name="szamIr" value="<%= data.balance %>" required><br>
+      <input type="number" name="szamIr" value="<%= data.szamIr %>" required><br>
       Város:
-      <input type="text" name="szamVar" value="<%= data.balance %>" required><br>
+      <input type="text" name="szamVar" value="<%= data.szamVar %>" required><br>
       Utca és házszám:
-      <input type="text" name="szamUtca" value="<%= data.balance %>" required><br>
+      <input type="text" name="szamUtca" value="<%= data.szamUtca %>" required><br>
       <h4>Szállítási cím:</h4>
       Ország:
-      <input type="text" name="szalOrsz" value="<%= data.balance %>" required><br>
+      <input type="text" name="szalOrsz" value="<%= data.szalOrsz %>" required><br>
       Irányító szám:
-      <input type="number" name="szalIr" value="<%= data.balance %>" required><br>
+      <input type="number" name="szalIr" value="<%= data.szalIr %>" required><br>
       Város:
-      <input type="text" name="szalVar" value="<%= data.balance %>" required><br>
+      <input type="text" name="szalVar" value="<%= data.szalVar %>" required><br>
       Utca és házszám:
-      <input type="text" name="szalUtca" value="<%= data.balance %>" required><br>
+      <input type="text" name="szalUtca" value="<%= data.szalUtca %>" required><br>
 
 
       Kupon:
-      <input type="text" name="kupon" value="<%= data.owner %>"><br>
+      <input type="text" name="kupon" value="<%= data.kupon %>"><br>
 
       <h4>Fizetés:</h4>
       Bankkártya szám:
-      <input type="text" name="cardNum" value="<%= data.balance %>" required><br>
+      <input type="text" name="cardNum" value="<%= data.cardNum %>" required><br>
       Lejárat:
-      <input type="date" name="cardDate" value="<%= data.balance %>" required><br>
+      <input type="month" name="cardDate" value="<%= data.cardDate %>" required><br>
       Biztonsági kód:
-      <input type="password" name="cardCvc" value="<%= data.balance %>" required><br>
+      <input type="password" name="cardCvc" value="<%= data.cardCvc %>" required><br>
+      
+      <% for (let e of errors){%>
+        <p style="color: red;"><%=e%></p>
+        <%}%>
+      
+      
+
+
 
       <input type="submit" value="Elküld!">
 

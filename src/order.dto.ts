@@ -11,5 +11,5 @@ export class orderDto{
   kupon: string;
   cardNum: string;
   cardDate: Date;
-  cardCvc: number;
+  cardCvc: string;
 }

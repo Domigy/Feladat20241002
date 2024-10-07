@@ -1,7 +1,6 @@
-import { Body, Controller, Get, Post, Redirect, Render, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Render, Res } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Items } from './Items';
-import { error } from 'console';
 import { OpenItemsDto } from './OpenItems.dto';
 import { orderDto } from './order.dto';
 import { Response } from 'express';
@@ -53,10 +52,15 @@ export class AppController {
     @Res() response: Response
   ) {
 
-    let errors = [];
+    const errors = [];
+    errors.push("asdas");
+    if(errors.length>0){
+      response.redirect('/order')
+      return;
+    }
+  
 
-
-    response.redirect('/order');
+    
 
   }
   @Get('openItemsOrder')
@@ -67,15 +71,40 @@ export class AppController {
   @Render('orderForm')
   orderForm() {
     return {
-      data: this.#items
+      data: this.#items,
+      errors: []
     }
   }
   @Post('order')
   orderPost(@Body() orderDto: orderDto,
     @Res() response: Response) {
-    let errors = [];
+      let errors = [];
+    if(!orderDto.Name||
+    !orderDto.SzamIr||
+    !orderDto.szamVar||
+    !orderDto.szamUtca||
+    !orderDto.SzamOrsz||
+    !orderDto.SzalIr||
+    !orderDto.szalVar||
+    !orderDto.szalUtca||
+    !orderDto.cardNum||
+    !orderDto.cardDate||
+    !orderDto.cardCvc){
+     errors.push("Add meg a kötelező mezőket!");
+    }
+    if(! /^[A-Z]{2}-\d{4}$/.test(orderDto.kupon)&& orderDto.kupon){
+      errors.push('A kupon BB-0000 formátumú legyen.')
+  }
+  if(! /^\d{4}-\d{4}-\d{4}-\d{4}$/.test(orderDto.cardNum)){
+    errors.push('A kártyaszám XXXX-XXXX-XXXX-XXXX formátumú legyen.')
+}
+if(! /^\d{3}$/.test(orderDto.cardCvc)){
+  errors.push('A kártyaszám XXX formátumú legyen.')
+}
+    
+
     if(errors.length>0){
-      response.render('openAccountForm',{
+      response.render('orderForm',{
         data: orderDto,
         errors
       })
